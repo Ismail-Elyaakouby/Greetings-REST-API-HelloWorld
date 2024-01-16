@@ -68,7 +68,7 @@ Build the Docker image and push it to a local registry:
 1. Apply the Kubernetes deployment files for individual customers:
 
 ```bash
-kubectl apply -f -f kubernetes
+kubectl apply -f kubernetes
 ```
 
 2. Set up port forwarding to make the application accessible from external
