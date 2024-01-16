@@ -62,20 +62,27 @@ Build the Docker image and push it to a local registry:
 ```bash
 ./scripts/docker_build.sh --docker_image_name greetings-service --tag_version latest --docker_repo_name 88915020
 ```
-Kubernetes
 
-Apply the Kubernetes deployment files for individual customers:
+### Kubernetes
+
+1. Apply the Kubernetes deployment files for individual customers:
 
 ```bash
 kubectl apply -f -f kubernetes
 ```
 
+2. Set up port forwarding to make the application accessible from external
+
 ```bash
 kubectl port-forward services/greetings-service-customer-svc 3000:3000
 ```
 
+3. Test the greetings
+
 Access the greetings service for Customer A: http://localhost:30001/greet/A
+
 Access the greetings service for Customer B: http://localhost:30002/greet/B
+
 Access the greetings service for Customer C: http://localhost:30002/greet/C
 
 
