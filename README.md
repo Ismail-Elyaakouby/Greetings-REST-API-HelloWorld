@@ -74,16 +74,16 @@ kubectl apply -f -f kubernetes
 2. Set up port forwarding to make the application accessible from external
 
 ```bash
-kubectl port-forward services/greetings-service-customer-svc 3000:3000
+kubectl port-forward services/greetings-service-customer-svc 30001:3000
 ```
 
 3. Test the greetings
 
 Access the greetings service for Customer A: http://localhost:30001/greet/A
 
-Access the greetings service for Customer B: http://localhost:30002/greet/B
+Access the greetings service for Customer B: http://localhost:30001/greet/B
 
-Access the greetings service for Customer C: http://localhost:30002/greet/C
+Access the greetings service for Customer C: http://localhost:30001/greet/C
 
 
 
