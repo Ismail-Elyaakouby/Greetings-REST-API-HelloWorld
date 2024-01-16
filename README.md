@@ -60,14 +60,23 @@ docker logs container_name."
 Build the Docker image and push it to a local registry:
 
 ```bash
-docker build -t greetings-service:latest .
-docker tag greetings-service:latest 88915020/greetings-service:latest
-docker push 88915020/greetings-service:latest
-
-
 ./scripts/docker_build.sh --docker_image_name greetings-service --tag_version latest --docker_repo_name 88915020
+```
+Kubernetes
 
+Apply the Kubernetes deployment files for individual customers:
 
+```bash
+kubectl apply -f -f kubernetes
+```
+
+```bash
+kubectl port-forward services/greetings-service-customer-svc 3000:3000
+```
+
+Access the greetings service for Customer A: http://localhost:30001/greet/A
+Access the greetings service for Customer B: http://localhost:30002/greet/B
+Access the greetings service for Customer C: http://localhost:30002/greet/C
 
 
 

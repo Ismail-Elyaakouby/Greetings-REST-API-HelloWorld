@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greetings-service-customer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greetings-service-customer
+  template:
+    metadata:
+      labels:
+        app: greetings-service-customer
+    spec:
+      containers:
+      - name: greetings-service
+        image: 88915020/greetings-service:latest
+        ports:
+        - containerPort: 3000
